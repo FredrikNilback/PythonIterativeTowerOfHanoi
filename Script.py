@@ -60,16 +60,17 @@ def resetTowers():
 def bitFlipped(current, next):
     return (current ^ next).bit_length() 
 
-def Solver():
+def Solver(noLogs=False):
     resetTowers()
     global numberOfMoves
     numberOfMoves = 0
     if (numberOfDiscs % 2 == 0):
         for i in range(1, bestPossible + 1):
             discToMove = bitFlipped(numberOfMoves, i)
-            print("Moving disc:", discToMove)
             numberOfMoves = i
-            print("Move number:", numberOfMoves)
+            if (not noLogs):
+                print("Moving disc:", discToMove)
+                print("Move number:", numberOfMoves)
 
             notFound = True
             fromTower = towerA
@@ -105,9 +106,10 @@ def Solver():
     else:
         for i in range(1, bestPossible + 1):
             discToMove = bitFlipped(numberOfMoves, i)
-            print("Moving disc", discToMove)
             numberOfMoves = i
-            print("Move number:", numberOfMoves)
+            if (not noLogs):
+                print("Moving disc", discToMove)
+                print("Move number:", numberOfMoves)
 
             notFound = True
             fromTower = towerA
@@ -157,6 +159,9 @@ while True:
         case "SolvePlz":
             Solver()
             break
+        case "SolvePlzNoLog":
+            Solver(True)
+            break
         case _:
             continue
 
@@ -174,6 +179,9 @@ while True:
             continue
         case "SolvePlz":
             Solver()
+            break
+        case "SolvePlzNoLog":
+            Solver(True)
             break
         case _:
             continue

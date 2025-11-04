@@ -2,3 +2,5 @@
 Wanted to refresh my memory of python for my current course.
 I have only made a tower of Hanoi recursive solver before so I thought I'd challenge myself and make an iterative solver.
 Using the "most significant bit flipped"-method.
+
+Probably 1000 things that can be done better. But all in all I'm satisfied with the result.
